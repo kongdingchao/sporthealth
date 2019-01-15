@@ -1,0 +1,49 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sporthealth.dao.UserInfoDao">
+
+    <select id="getUserInfos" resultType="UserInfo">
+        <![CDATA[
+			SELECT 
+				USERID,NAME,SEX,AGE,REGTIME
+			FROM
+				SH_USERINFO
+		]]>
+    </select>
+    <select id="getUserInfo" resultType="UserInfo">
+        <![CDATA[
+			SELECT 
+				USERID,NAME,SEX,AGE,REGTIME
+			FROM
+				SH_USERINFO
+			WHERE USERID=#userId:INTEGER#
+		]]>
+    </select>
+    <insert id="insertUserInfo">
+        <![CDATA[
+			INSERT INTO SH_USERINFO
+				(NAME,SEX,AGE,REGTIME)
+			VALUES
+				(#name:VARCHAR#,#sex:INTEGER#,#age:INTEGER#,#regTime:VARCHAR#)
+		]]>
+    </insert>
+    <delete id="deleteUserInfo">
+        <![CDATA[
+			DELETE FROM 
+				SH_USERINFO
+			WHERE 
+				USERID = #userId:INTEGER#
+		]]>
+    </delete>
+    <update id="updateUserInfo" parameterType="java.util.Map">
+        <![CDATA[
+			UPDATE
+				SH_USERINFO
+			SET
+				NAME = #UserInfo.name:VARCHAR#, SEX = #UserInfo.sex:INTEGER#, AGE = #UserInfo.age:INTEGER#, REGTIME = #UserInfo.regTime:VARCHAR#
+			WHERE
+				USERID = #userId:INTEGER#
+		]]>
+    </update>
+</mapper>
