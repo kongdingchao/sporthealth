@@ -13,27 +13,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @description: 用户信息服务
- * @author: kongdingchao
- * @create: 2019/1/15-19:03
- **/
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
     //日志对象
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     UserInfoDao userInfoDao;
 
-//    @Autowired
-//    RedisDao redisDao;
+    @Autowired
+    RedisDao redisDao;
 
     @Override
     public List<UserInfo> getUserInfos() {
-        List<UserInfo> lt = userInfoDao.getStudents();
+        List<UserInfo> lt = userInfoDao.getUserInfos();
         logger.debug("getUserInfos:{}", lt);
+        for (UserInfo userInfo : lt) {
+            redisDao.putUserInfo(userInfo);
+        }
         return lt;
+    }
+
+    @Override
+    public UserInfo getUserInfo(long userId) {
+        UserInfo userInfo = redisDao.getUserInfo(userId);
+        if (userInfo == null) {
+            userInfo = userInfoDao.getUserInfo(userId);
+            if (userInfo != null) {
+                redisDao.putUserInfo(userInfo);
+            }
+        }
+        logger.debug("getUserInfo:{}", userInfo);
+        return userInfo;
     }
 
     @Override

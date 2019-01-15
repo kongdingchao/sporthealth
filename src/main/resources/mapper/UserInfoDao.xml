@@ -4,46 +4,36 @@
 <mapper namespace="com.sporthealth.dao.UserInfoDao">
 
     <select id="getUserInfos" resultType="UserInfo">
-        <![CDATA[
 			SELECT 
 				USERID,NAME,SEX,AGE,REGTIME
 			FROM
 				SH_USERINFO
-		]]>
     </select>
     <select id="getUserInfo" resultType="UserInfo">
-        <![CDATA[
-			SELECT 
+			SELECT
 				USERID,NAME,SEX,AGE,REGTIME
 			FROM
 				SH_USERINFO
-			WHERE USERID=#userId:INTEGER#
-		]]>
+			WHERE USERID = #{userId}
     </select>
     <insert id="insertUserInfo">
-        <![CDATA[
 			INSERT INTO SH_USERINFO
 				(NAME,SEX,AGE,REGTIME)
 			VALUES
-				(#name:VARCHAR#,#sex:INTEGER#,#age:INTEGER#,#regTime:VARCHAR#)
-		]]>
+				(#{name},#{sex},#{age},#{regTime})
     </insert>
     <delete id="deleteUserInfo">
-        <![CDATA[
 			DELETE FROM 
 				SH_USERINFO
 			WHERE 
-				USERID = #userId:INTEGER#
-		]]>
+				USERID = #{userId}
     </delete>
     <update id="updateUserInfo" parameterType="java.util.Map">
-        <![CDATA[
 			UPDATE
 				SH_USERINFO
 			SET
-				NAME = #UserInfo.name:VARCHAR#, SEX = #UserInfo.sex:INTEGER#, AGE = #UserInfo.age:INTEGER#, REGTIME = #UserInfo.regTime:VARCHAR#
+				NAME = #{name}, SEX = #{sex}, AGE = #{age}, REGTIME = #{regTime}
 			WHERE
-				USERID = #userId:INTEGER#
-		]]>
+				USERID = #{userId}
     </update>
 </mapper>

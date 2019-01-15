@@ -32,5 +32,5 @@
     </bean>
 
     <!--4:扫描web相关的controller-->
-    <context:component-scan base-package="cn.liming.controller"/>
+    <context:component-scan base-package="com.sporthealth.controller"/>
 </beans>

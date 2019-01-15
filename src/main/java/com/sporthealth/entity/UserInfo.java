@@ -1,7 +1,5 @@
 package com.sporthealth.entity;
 
-import com.sporthealth.enums.SexEnum;
-
 import java.util.Date;
 
 public class UserInfo {
