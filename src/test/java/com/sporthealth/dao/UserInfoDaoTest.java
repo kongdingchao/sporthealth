@@ -1,6 +1,8 @@
 package com.sporthealth.dao;
 
 import com.sporthealth.entity.UserInfo;
+import com.sporthealth.enums.SexEnum;
+import com.sporthealth.enums.handler.EnumKeyTypeHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +17,18 @@ public class UserInfoDaoTest {
     @Autowired
     UserInfoDao userInfoDao;
 
-    @Test
-    public void inserStudent() {
-        System.out.println("inserStudent...begin");
+    //@Test
+    public void inserUserInfo() {
+        System.out.println("inserUserInfo...begin");
         UserInfo userInfo = new UserInfo();
-        userInfo.setName("kdc");
-        userInfo.setAge(25);
-        userInfo.setSex(0);
+        userInfo.setName("yaoliang");
+        userInfo.setAge(20);
+        userInfo.setSex(SexEnum.MAN);
         Date date = new Date();
         userInfo.setRegTime(date);
 
         userInfoDao.insertUserInfo(userInfo);
-        System.out.println("inserStudent...end," + userInfo.toString());
+        System.out.println("inserUserInfo...end," + userInfo.toString());
     }
 
     @Test

@@ -1,11 +1,13 @@
 package com.sporthealth.entity;
 
+import com.sporthealth.enums.SexEnum;
+
 import java.util.Date;
 
 public class UserInfo {
     private long userId;
     private String name;
-    private int sex;
+    private SexEnum sex;
     private int age;
     private Date regTime;
 
@@ -25,11 +27,11 @@ public class UserInfo {
         this.name = name;
     }
 
-    public int getSex() {
+    public SexEnum getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(SexEnum sex) {
         this.sex = sex;
     }
 
@@ -54,7 +56,7 @@ public class UserInfo {
         return "UserInfo{" +
                 "userId=" + userId +
                 ", name='" + name + '\'' +
-                ", sex=" + sex +
+                ", sex=" + sex.getValue() +
                 ", age=" + age +
                 ", regTime=" + regTime +
                 '}';

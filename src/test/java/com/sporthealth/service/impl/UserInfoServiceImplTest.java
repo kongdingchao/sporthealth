@@ -21,11 +21,11 @@ public class UserInfoServiceImplTest {
     @Test
     public void getUserInfos() {
         System.out.println("getUserInfos...begin");
-        logger.info(userInfoService.getUserInfos().toString());
+        //logger.info(userInfoService.getUserInfos().toString());
         System.out.println("getUserInfos...end");
     }
 
-    @Test
+    //@Test
     public void getUserInfo() {
         System.out.println("getUserInfos...begin");
         logger.info(userInfoService.getUserInfo(6).toString());

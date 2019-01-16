@@ -3,24 +3,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sporthealth.dao.UserInfoDao">
 
-    <select id="getUserInfos" resultType="UserInfo">
-			SELECT 
-				USERID,NAME,SEX,AGE,REGTIME
-			FROM
-				SH_USERINFO
+	<resultMap id="userInfoMap" type="UserInfo">
+		<result column="USERID" property="userId"></result>
+		<result column="NAME" property="name"></result>
+		<result column="SEX" property="sex" javaType="com.sporthealth.enums.SexEnum" typeHandler="com.sporthealth.enums.handler.EnumKeyTypeHandler"/>
+		<result column="AGE" property="age"></result>
+		<result column="REGTIME" property="regTime"></result>
+	</resultMap>
+    <select id="getUserInfos" resultMap="userInfoMap">
+			SELECT USERID,NAME,SEX,AGE,REGTIME FROM SH_USERINFO
     </select>
-    <select id="getUserInfo" resultType="UserInfo">
+    <select id="getUserInfo" resultMap="userInfoMap">
 			SELECT
 				USERID,NAME,SEX,AGE,REGTIME
 			FROM
 				SH_USERINFO
 			WHERE USERID = #{userId}
     </select>
-    <insert id="insertUserInfo">
+    <insert id="insertUserInfo" parameterType="UserInfo">
 			INSERT INTO SH_USERINFO
 				(NAME,SEX,AGE,REGTIME)
 			VALUES
-				(#{name},#{sex},#{age},#{regTime})
+				(#{name},#{sex, javaType=com.sporthealth.enums.SexEnum,typeHandler=com.sporthealth.enums.handler.EnumKeyTypeHandler},#{age},#{regTime})
     </insert>
     <delete id="deleteUserInfo">
 			DELETE FROM 
@@ -32,7 +36,7 @@
 			UPDATE
 				SH_USERINFO
 			SET
-				NAME = #{name}, SEX = #{sex}, AGE = #{age}, REGTIME = #{regTime}
+				NAME = #{name}, SEX = #{sex, javaType=com.sporthealth.enums.SexEnum,typeHandler=com.sporthealth.enums.handler.EnumKeyTypeHandler}, AGE = #{age}, REGTIME = #{regTime}
 			WHERE
 				USERID = #{userId}
     </update>

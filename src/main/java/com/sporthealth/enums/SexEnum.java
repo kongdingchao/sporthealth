@@ -5,41 +5,49 @@ package com.sporthealth.enums;
 * @author: kongdingchao
 * @create: 2019/1/15
 **/
-public enum SexEnum {
+public enum SexEnum implements IEnum{
     MAN(0,"男"),
     WOMAN(1,"女"),
     OTHER(-1,"人妖");//搞笑了
 
-    private int sex;
-    private String info;
-
-    SexEnum(int sex, String info) {
-        this.sex = sex;
-        this.info = info;
+    private int key;
+    private String value;
+    private SexEnum(int key, String value) {
+        this.key = key;
+        this.value = value;
     }
 
-    public int getSex() {
-        return sex;
+    @Override
+    public int getKey() {
+        return this.key;
     }
 
-    public void setSex(int sex) {
-        this.sex = sex;
+    @Override
+    public void setKey(int key) {
+        this.key = key;
     }
 
-    public String getInfo() {
-        return info;
+    @Override
+    public String getValue() {
+        return this.value;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    @Override
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    public static SexEnum sexOf(int sex)
-    {
-        for (SexEnum tmp : values())
-        {
-            if (tmp.getSex() == sex)
-            {
+    public static SexEnum enumOfKey(int key) {
+        for (SexEnum tmp : values()) {
+            if (tmp.getKey() == key) {
+                return tmp;
+            }
+        }
+        return null;
+    }
+    public static SexEnum enumOfValue(int value) {
+        for (SexEnum tmp : values()) {
+            if (tmp.getValue().equals(value)) {
                 return tmp;
             }
         }
