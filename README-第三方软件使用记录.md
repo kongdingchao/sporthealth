@@ -1,5 +1,6 @@
 ## 第三方软件使用笔记
 ## Git
+功能：开源版本库管理
 #初始本地仓库
 git init
 
@@ -21,7 +22,18 @@ git push -u origin master
 #更新远程仓库到本地
 git pull origin
 
+#git忽略文件配置
+git config --global core.excludesfile ~/.gitignore
+
+#让.gitignore文件立刻生效
+git rm -r –cached . #清除缓存
+
+git add . #重新按照ignore的规则add所有的文件
+
+git commit -m “update .gitignore” #提交和注释
+
 ## Redis
+功能：支持6种数据类型得数据缓存，支持高存取性能压力
 linux centos 7环境下
 通过配置redis.conf，实现其它地址访问：
 
@@ -46,11 +58,14 @@ firewalld的基本使用
 开机启用  ： systemctl enable firewalld
 
 ## RabbitMQ
+功能：实现不同程序的数据传输与交互；
 
 ## Oracle
+功能：关系型数据库实现数据存储；
 数据库使用Oracle 11g
 
 ##jenkins
+功能：实现项目自动化代码走查、编译、测试、发布；
 http://localhost:8080
 kdc/123456
 
@@ -76,7 +91,11 @@ H H/2 * * *
 
 第五个*表示一周中的第几天，取值0~7，其中0和7代表的都是周日
 
+自动话部署请查看：doc/jenkins.txt
 
+##haproxy
+功能：实现服务4层、7层服务代理，负载均衡
+请参考配置：doc/haproxy
 
 
 
