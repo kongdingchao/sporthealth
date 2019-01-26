@@ -1,0 +1,2 @@
+#git忽略文件配置
+git config --global core.excludesfile ~/.gitignore

@@ -1,0 +1,48 @@
+
+自动部署脚本：
+rem 设置全局变量
+set prj_name=sporthealth
+set package_path=D:\git_workshop\sporthealth\target
+set tomcat_home=D:\tomcat\apache-tomcat-7.0.59
+
+set startup_command=%tomcat_home%\bin\startup.bat
+set shutdown_command=%tomcat_home%\bin\shutdown.bat
+
+rem 关闭tomcat
+call %shutdown_command%
+
+rem 暂停10s
+ping -n 10 127.0.0.1
+
+rem 删除旧包目录
+rd /s /q %tomcat_home%\webapps\%prj_name%
+
+rem 新包重命名
+d:
+cd %package_path%
+ren register-web.war %prj_name%.war
+
+rem 拷贝新包到发布目录
+copy %prj_name%.war %tomcat_home%\webapps
+
+rem 启动tomcat
+
+call %startup_command%
+
+rem 暂停10s
+ping -n 10 127.0.0.1
+
+rem 关闭tomcat
+call %shutdown_command%
+
+rem 删除war包
+rd /s /q %tomcat_home%\webapps\%prj_name%.war
+
+rem 替换配置文件
+copy %config_path%\%prj_name% %tomcat_home%\webapps\%prj_name%\WEB-INF\classes
+
+rem 启动tomcat
+call %startup_command%
+
+rem 关闭窗口
+exit

@@ -1,0 +1,19 @@
+新增监控页面：
+listen admin_stats
+        stats   enable
+        bind    *:8081    //监听的ip端口号
+        mode    http    //开关
+        option  httplog
+        log     global
+        maxconn 10
+        stats   refresh 30s   //统计页面自动刷新时间
+        stats   uri /admin    //访问的uri   ip:8080/admin
+        stats   realm haproxy
+        stats   auth admin:admin  //认证用户名和密码
+        stats   hide-version   //隐藏HAProxy的版本号
+        stats   admin if TRUE   //管理界面，如果认证成功了，可通过webui管理节点
+--------------------- 
+作者：Dylan_csdn 
+来源：CSDN 
+原文：https://blog.csdn.net/dylan_csdn/article/details/51261421 
+版权声明：本文为博主原创文章，转载请附上博文链接！

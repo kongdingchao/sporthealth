@@ -41,6 +41,7 @@ IDEA+Maven+SSM框架。
 4、使用rabbitmq通讯接收步数信息；
 5、使用thrift RPC支持请求服务；
 6、日志使用ELK日志分析平台; 
+7、使用Shiro安全验证
 
 ## 2.Java高并发运动健康APi之业务分析与DAO层代码编写
 
