@@ -35,7 +35,11 @@ git commit -m “update .gitignore” #提交和注释
 ## Redis
 功能：支持6种数据类型得数据缓存，支持高存取性能压力
 linux centos 7环境下
-通过配置redis.conf，实现其它地址访问：
+通过配置redis.conf，实现其它地址访问
+
+启动：/root/redis-4.0.9/src/redis-server /root/redis-4.0.9/redis.conf
+
+客户端登陆：redis-cli -h 127.0.0.1 -p 6379 -a 123456
 
 1、屏蔽bind 127.0.0.1;
 
@@ -66,8 +70,10 @@ firewalld的基本使用
 
 ##jenkins
 功能：实现项目自动化代码走查、编译、测试、发布；
-http://localhost:8080
+http://localhost:9080
 kdc/123456
+
+服务重启：windows服务管理
 
 schedual:
 
@@ -96,6 +102,66 @@ H H/2 * * *
 ##haproxy
 功能：实现服务4层、7层服务代理，负载均衡
 请参考配置：doc/haproxy
+
+服务重启：systemctl restart haproxy system restart haproxy.service
+
+配置文件：vim /etc/haproxy/haproxy.conf
+
+查看监听服务：netstat -ntlup | grep haproxy
+
+##Nginx
+功能：7层http服务代理
+
+验证nginx配置文件是否正确：进入nginx安装目录sbin下，输入命令./nginx -t
+
+服务重启：./nginx
+
+配置文件：/usr/local/nginx/conf/nginx.conf
+
+访问地址：192.168.80.128:80
+
+##Elasticsearch
+功能：日志搜索、分析
+
+查看服务启动信息：tail -n50 /var/log/messages
+
+curl查看es集群情况：curl '192.168.80.128:9200/_cluster/health?pretty'
+
+curl查看es集群的详细信息：curl '192.168.80.128:9200/_cluster/state?pretty'
+
+curl查看es集群的index信息：curl '192.168.80.128:9200/_cat/indices?v'
+
+服务重启：system restart elasticsearch.service
+
+访问地址：http://192.168.80.128:9200/
+
+配置文件：vim /etc/elasticsearch/elasticsearch.yml
+
+程序路径：/usr/share/elasticsearch
+
+##Kibana
+功能：展示日志
+
+服务重启：system restart kibana.service
+
+访问地址：http://192.168.80.128:5601/
+
+配置文件：vim /etc/kibana/kibana.yml
+
+程序路径：/usr/share/kibana
+
+##Logstash
+功能：采集日志
+
+测试配置：./logstash --path.settings /etc/logstash/ -f /etc/logstash/conf.d/syslog.conf --config.test_and_exit
+
+服务重启：system restart logstash.service
+
+监听系统日志配置文件：vim /etc/logstash/conf.d/syslog.conf
+
+程序路径：/usr/share/logstash
+
+生成logstash.service:sudo /usr/share/logstash/bin/system-install /etc/logstash/startup.options systemd
 
 
 
