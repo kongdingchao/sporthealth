@@ -1,9 +1,5 @@
 # Compiled class file
 *.class
-target/
-sporthealth-server/target/
-sporthealth-client/target/
-sporthealth-test/target/
 
 # Log file
 *.log
@@ -23,11 +19,5 @@ sporthealth-test/target/
 *.tar.gz
 *.rar
 
-
-
-# IntelliJ IDEA Project files
-.idea
-*.iml
-*.ipr
-*.iws
-out
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

@@ -73,6 +73,17 @@ firewalld的基本使用
 http://localhost:9080
 kdc/123456
 
+###docker
+学习地址：https://www.runoob.com/docker/docker-tutorial.html
+远程仓库地址：/etc/docker/daemon.json
+常用命令:docker search/ps/images/pull
+安装mysql:
+docker pull mysql
+docker run --name pwc-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql
+
+###MySQL
+创建databas:CREATE DATABASE IF NOT EXISTS RUNOOB DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
 服务重启：windows服务管理
 
 schedual:
