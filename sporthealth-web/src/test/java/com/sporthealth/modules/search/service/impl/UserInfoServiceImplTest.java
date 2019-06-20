@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-dao.xml"
-        , "classpath:spring/spring-service.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration({"classpath:spring/spring-dao.xml"
+//        , "classpath:spring/spring-service.xml"})
 public class UserInfoServiceImplTest {
     //日志对象
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -25,7 +25,7 @@ public class UserInfoServiceImplTest {
         System.out.println("getUserInfos...end");
     }
 
-    @Test
+    //@Test
     public void getUserInfo() {
         System.out.println("getUserInfos...begin");
         logger.info(userInfoService.getUserInfo(6).toString());

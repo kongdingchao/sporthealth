@@ -9,9 +9,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Date;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 //告诉junit spring的配置文件
-@ContextConfiguration({"classpath:spring/spring-dao.xml"})
+//@ContextConfiguration({"classpath:spring/spring-dao.xml"})
 public class UserInfoDaoTest {
     @Autowired
     UserInfoDao userInfoDao;
@@ -30,14 +30,14 @@ public class UserInfoDaoTest {
         System.out.println("inserUserInfo...end," + userInfo.toString());
     }
 
-    @Test
-    public void searchUserInfos() {
-        System.out.println(userInfoDao.searchUserInfo("sporthealth"));
-    }
+//    @Test
+//    public void searchUserInfos() {
+//        System.out.println(userInfoDao.searchUserInfo("sporthealth"));
+//    }
 
 
-    //@Test
-    public void getUserInfos() {
-        System.out.println(userInfoDao.getUserInfos());
-    }
+//    //@Test
+//    public void getUserInfos() {
+//        System.out.println(userInfoDao.getUserInfos());
+//    }
 }

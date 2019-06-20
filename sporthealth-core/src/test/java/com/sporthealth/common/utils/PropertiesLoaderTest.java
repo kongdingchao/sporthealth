@@ -16,7 +16,7 @@ public class PropertiesLoaderTest {
         PropertiesLoader propertiesLoader = new PropertiesLoader("/sporthealth.properties");
         System.out.println(propertiesLoader.getProperty("app.version"));
         System.out.println(propertiesLoader.getProperty("app.version2", "1.0"));
-        System.out.println(propertiesLoader.getProperty("app.version3"));
+        //System.out.println(propertiesLoader.getProperty("app.version3"));
     }
 
     @Test
@@ -26,6 +26,6 @@ public class PropertiesLoaderTest {
         propertiesLoader.loadPropertiesByClass(new String[]{"/sporthealth.properties"});
         System.out.println(propertiesLoader.getProperty("app.version"));
         System.out.println(propertiesLoader.getProperty("app.version2", "1.0"));
-        System.out.println(propertiesLoader.getProperty("app.version3"));
+        //System.out.println(propertiesLoader.getProperty("app.version3"));
     }
 }

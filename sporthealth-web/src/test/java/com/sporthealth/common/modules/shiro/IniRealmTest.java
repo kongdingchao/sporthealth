@@ -16,7 +16,7 @@ import org.junit.Test;
  * @create: 2019-01-28 20:04
  **/
 public class IniRealmTest {
-    @Test
+    //@Test
     public void testAuthentication(){
         IniRealm iniRealm = new IniRealm("classpath:user.ini");
         //1.构建SercurityMannager环境

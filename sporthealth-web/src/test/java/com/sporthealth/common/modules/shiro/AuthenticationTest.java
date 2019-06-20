@@ -19,12 +19,12 @@ public class AuthenticationTest {
 
     SimpleAccountRealm simpleAccountRealm = new SimpleAccountRealm();
 
-    @Before
+    //@Before
     public void initSimpleAccountRealm() {
         this.simpleAccountRealm.addAccount("kdc", "123456", "admin");
     }
 
-    @Test
+    //@Test
     public void testAuthentication(){
         //1.构建SercurityMannager环境
         DefaultSecurityManager defaultSecurityManager = new DefaultSecurityManager();
