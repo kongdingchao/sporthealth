@@ -1,4 +1,4 @@
-package com.sporthealth.common.shiro;
+package com.sporthealth.common.modules.shiro;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;

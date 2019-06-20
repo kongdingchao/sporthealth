@@ -12,8 +12,14 @@
     <artifactId>sporthealth-web</artifactId>
   <packaging>war</packaging>
   <name>sporthealth-web</name>
-  
+
   <dependencies>
+	  <dependency>
+		  <!--3.0的junit是使用编程的方式来进行测试，而junit4是使用注解的方式来运行junit-->
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <scope>test</scope>
+	  </dependency>
     <dependency>
 		<groupId>com.sporthealth</groupId>
 		<artifactId>sporthealth-core</artifactId>
@@ -40,6 +46,78 @@
 		<artifactId>sporthealth-gen</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</dependency>
+
+	  <!--1.数据库相关依赖-->
+	  <dependency>
+		  <groupId>com.oracle</groupId>
+		  <artifactId>ojdbc6</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>c3p0</groupId>
+		  <artifactId>c3p0</artifactId>
+	  </dependency>
+
+	  <!--2.dao框架:MyBatis依赖-->
+	  <dependency>
+		  <groupId>org.mybatis</groupId>
+		  <artifactId>mybatis</artifactId>
+	  </dependency>
+	  <!--mybatis自身实现的spring整合依赖-->
+	  <dependency>
+		  <groupId>org.mybatis</groupId>
+		  <artifactId>mybatis-spring</artifactId>
+	  </dependency>
+
+	  <!--3.Servlet web相关依赖-->
+	  <dependency>
+		  <groupId>taglibs</groupId>
+		  <artifactId>standard</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>jstl</groupId>
+		  <artifactId>jstl</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-databind</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>javax.servlet-api</artifactId>
+	  </dependency>
+
+	  <!--2)spring dao层依赖-->
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-jdbc</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-tx</artifactId>
+	  </dependency>
+	  <!--3)springweb相关依赖-->
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-web</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-webmvc</artifactId>
+	  </dependency>
+
+	  <!--shiro-->
+	  <dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-core</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-spring</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-web</artifactId>
+	  </dependency>
 
   </dependencies>
   
