@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="logsGather" class="com.sporthealth.monitor.gather.impl.LogsGather"></bean>
+    <bean id="realMonitorClient" class="com.sporthealth.monitor.impl.RealMonitorClient"></bean>
+    <bean id="intervalMonitorClient" class="com.sporthealth.monitor.impl.IntervalMonitorClient"></bean>
+
+    <bean class="com.sporthealth.monitor.impl.MonitorBeanPostProcessor">
+        <property name="realMonitorClient" ref="realMonitorClient"></property>
+        <property name="intervalMonitorClient" ref="intervalMonitorClient"></property>
+    </bean>
+
+    <!--扫描gather包下所有使用注解的类型-->
+    <!--<context:component-scan base-package="com.sporthealth.monitor.gather.impl"/>-->
+
+    <!--以下内容在宿主jar中引用-->
+    <!-- 加载配置属性文件 -->
+    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:monitor.properties" />
+    <bean class="com.sporthealth.monitor.SpringLifecycleManager">
+        <property name="realGather" value="${sporthealth-monitor.IsRealGather}"/>
+        <property name="intervalGather" value="${sporthealth-monitor.IsIntervalGather}"/>
+        <property name="intervalGatherTime" value="${sporthealth-monitor.IntervalGatherTime}"/>
+    </bean>-->
+
+</beans>

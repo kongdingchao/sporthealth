@@ -43,7 +43,7 @@ public class Global {
     /**
      * 属性文件加载对象
      */
-    private static PropertiesLoader loader = new PropertiesLoader("jeesite.properties");
+    private static PropertiesLoader loader = new PropertiesLoader("jeesite.com.sporthealth.monitor.properties");
     /**
      * 获取配置
      *

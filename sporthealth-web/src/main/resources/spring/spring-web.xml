@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- 加载配置属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:sporthealth.properties" />
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sporthealth.com.sporthealth.monitor.properties" />
 
     <!--配置spring mvc-->
     <!--1,开启springmvc注解模式

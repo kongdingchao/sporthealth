@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 加载配置属性文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:monitor.properties" />
+
+    <!--以下内容在宿主jar中引用-->
+    <bean class="com.sporthealth.monitor.SpringLifecycleManager">
+        <property name="realGather" value="${sporthealth-monitor.IsRealGather}"/>
+        <property name="intervalGather" value="${sporthealth-monitor.IsIntervalGather}"/>
+        <property name="intervalGatherTime" value="${sporthealth-monitor.IntervalGatherTime}"/>
+    </bean>
+
+</beans>
