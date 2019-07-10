@@ -13,7 +13,9 @@ import org.apache.thrift.TSerializer;
  **/
 public class SpotRateMessage implements MQMessage {
     private SpotRate mySpotRate = null;
-
+    public SpotRateMessage() {
+        mySpotRate = new SpotRate();
+    }
     public SpotRateMessage(SpotRate mySpotRate) {
         this.mySpotRate = mySpotRate;
     }
@@ -21,7 +23,7 @@ public class SpotRateMessage implements MQMessage {
     @Override
     public byte[] serialize(TSerializer serializer) throws TException {
         if (null != mySpotRate) {
-            serializer.serialize(mySpotRate);
+            return serializer.serialize(mySpotRate);
         }
         return null;
     }

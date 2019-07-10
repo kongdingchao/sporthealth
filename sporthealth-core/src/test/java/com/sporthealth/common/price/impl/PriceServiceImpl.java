@@ -3,7 +3,6 @@ package com.sporthealth.common.price.impl;
 import com.sporthealth.common.price.Collector;
 import com.sporthealth.common.price.PriceService;
 import com.sporthealth.common.price.Publisher;
-import com.sporthealth.common.utils.ConfigReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

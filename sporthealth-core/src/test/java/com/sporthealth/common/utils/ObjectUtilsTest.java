@@ -80,7 +80,7 @@ public class ObjectUtilsTest {
     public void annotationToObject() {
         TestSupProperties testSupProperties = new TestSupProperties();
         Annotation declaredAnnotation = A.class.getDeclaredAnnotation(SupProperties.class);
-        ObjectUtils.annotationToObject(declaredAnnotation, testSupProperties);
+        //ObjectUtils.annotationToObject(declaredAnnotation, testSupProperties);
         System.out.println(testSupProperties.toString());
     }
 }

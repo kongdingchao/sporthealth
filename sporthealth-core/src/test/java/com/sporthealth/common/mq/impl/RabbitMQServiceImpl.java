@@ -42,7 +42,7 @@ public class RabbitMQServiceImpl implements MQService {
             factory.setHost("127.0.0.1");
             factory.setPort(5672);
             factory.setUsername("admin");
-            factory.setPassword("123456");
+            factory.setPassword("admin");
             //创建单线程池，保证牌价先后顺序
             Connection connection = factory.newConnection(Executors.newSingleThreadExecutor());
             channel = connection.createChannel();
@@ -72,7 +72,6 @@ public class RabbitMQServiceImpl implements MQService {
                     if (sendType.equals(SendType.COMMON)) {//普通模式
 
                         channel.basicPublish("tc_exchange", "tc_queue", null, message.serialize(ts));
-
                     } else if (sendType.equals(SendType.COMMON_BLOCK)) {//普通阻塞模式
                         channel.basicPublish("tc_exchange", "tc_queue", null, message.serialize(ts));
                         try {
@@ -129,6 +128,7 @@ public class RabbitMQServiceImpl implements MQService {
                         msgCaches.put(nextSeqNo, message);
 
                     }
+                    logger.info("senddata message={}", message);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (TException e) {

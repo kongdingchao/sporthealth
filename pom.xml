@@ -254,6 +254,18 @@
                 <version>17.0</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.thrift</groupId>
+                <artifactId>libthrift</artifactId>
+                <version>0.11.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>4.2.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
